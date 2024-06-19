@@ -27,9 +27,13 @@ show_progress() {
     echo " Done."
 }
 
-# Check if extension and months are supplied as parameters, if not prompt for them
-extension=${1:-$(prompt_for_input "Enter the file extension to filter by (e.g., .java)" ".java")}
-months=${2:-$(prompt_for_input "Enter the number of months to look back" "6")}
+# Prompt for working directory, extension, and months if not supplied as parameters
+working_dir=${1:-$(prompt_for_input "Enter the working directory" ".")}
+extension=${2:-$(prompt_for_input "Enter the file extension to filter by (e.g., .java)" ".java")}
+months=${3:-$(prompt_for_input "Enter the number of months to look back" "6")}
+
+# Change to the specified working directory
+cd "$working_dir" || { echo "Directory not found: $working_dir"; exit 1; }
 
 # Generate package change counts and store in a variable
 echo "Collecting package changes..."
