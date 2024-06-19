@@ -41,7 +41,7 @@ You can run the script with or without arguments.
 
 #### Without Arguments
 
-If you run the script without any arguments, it will prompt you to enter the file extension and the number of months:
+If you run the script without any arguments, it will prompt you to enter the working directory, file extension and the number of months:
 
 ```bash
 ./git_changes_report.sh
@@ -49,6 +49,7 @@ If you run the script without any arguments, it will prompt you to enter the fil
 
 You will be prompted to enter:
 
+- **Working directory by** (default: `.`)
 - **File extension to filter by** (default: `.java`)
 - **Number of months to look back** (default: `6`)
 
@@ -57,7 +58,7 @@ You will be prompted to enter:
 You can also provide the file extension and the number of months as arguments:
 
 ```bash
-./git_changes_report.sh .py 3
+./git_changes_report.sh . .py 3
 ```
 
 In this example, the script will generate a report for `.py` files and look back 3 months in the Git history.
